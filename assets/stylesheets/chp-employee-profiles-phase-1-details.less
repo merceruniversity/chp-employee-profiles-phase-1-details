@@ -1,0 +1,278 @@
+// out: ./chp-employee-profiles-phase-1-details.css, compress: true, sourcemap: true
+
+@import '../thirdparty/flexbox-less-mixins/1.0/flexbox.less';
+@import '../thirdparty/bootstrap/3.3.7/less/mixins/vendor-prefixes.less';
+@import '../thirdparty/bootstrap/3.3.7/less/variables.less';
+
+@mercerOrange: #c95106;
+
+.csElementWrapper() {
+    * {
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.CHPEmployeeProfilesPhase1Details {
+    // background-color: #eee;
+
+    box-sizing: border-box;
+
+    * {
+        box-sizing: inherit;
+    }
+
+/*
+
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+██████   ██████     ██       ██     ██████  ██   ████ ███████
+
+*/
+
+    &-buttons {
+        margin: 0 0 3rem;
+    }
+
+    &-button {
+        background-color: @gray;
+        border-left: 0.5rem solid @mercerOrange;
+        color: #fff;
+        .flex-display();
+        margin: 0 0 1rem;
+        padding: 0.5rem;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: @mercerOrange;
+            border-left-color: @gray;
+            color: #fff;
+        }
+    }
+
+    &-buttonIconOutside {
+        .align-items(center);
+        .flex-display();
+        .flex-shrink(1);
+    }
+
+    &-buttonIcon {
+        height: auto;
+        width: 2rem;
+    }
+
+    &-buttonIcon {
+        fill: #fff;
+    }
+
+    &-buttonText {
+        .align-items(center);
+        .flex-display();
+        .flex-grow(1);
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+    }
+
+/*
+
+██████   █████  ███████ ██  ██████
+██   ██ ██   ██ ██      ██ ██
+██████  ███████ ███████ ██ ██
+██   ██ ██   ██      ██ ██ ██
+██████  ██   ██ ███████ ██  ██████
+
+*/
+
+    &-basicInformation {
+        // background-color: #fee;
+        .flex-display();
+        margin: 0 0 3rem;
+    }
+
+    &-basicInformationImage {
+        max-width: 25%;
+    }
+
+    &--hasHeadshot &-basicInformationText {
+        padding: 0 0 0 3rem;
+    }
+
+    &-apellation {
+        // background-color: #efe;
+        margin: 0 0 1rem;
+
+        > * {
+            margin: 0 0 0.5rem;
+        }
+    }
+
+    &-contactInformation {
+        // background-color: #eef;
+        > * {
+            margin: 0 0 0.25rem;
+        }
+    }
+
+    &-headshotWrapper {
+        img {
+            background-color: #fff;
+            border: 5px solid #fff;
+            border-radius: 5px;
+            box-shadow: 3px 0px 3px #888
+                ,-3px 0px 3px #888;
+            margin: 3px;
+            max-width: ~'calc(100% - (3px * 2))';
+        }
+    }
+
+    &-nameWrapper {
+        .csElementWrapper();
+
+        color: @mercerOrange;
+        font-family: "Crimson Text", serif;
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    &-postnominalLettersWrapper {
+        .csElementWrapper();
+
+        color: @gray;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &-titleWrapper {
+        .csElementWrapper();
+
+        font-size: 2rem;
+    }
+
+    &-emailWrapper {
+        .csElementWrapper();
+    }
+
+    &-phoneNumberWrapper {
+        .csElementWrapper();
+
+        display: none;
+        div {
+            display: inline;
+        }
+    }
+
+    &--hasPhoneNumber &-phoneNumberWrapper {
+        display: block;
+    }
+
+    &-faxNumberWrapper {
+        .csElementWrapper();
+
+        display: none;
+        div {
+            display: inline;
+        }
+    }
+
+    &--hasFaxNumber &-faxNumberWrapper {
+        display: block;
+    }
+
+    &-phoneNumberWrapper::after,
+    &-faxNumberWrapper::after {
+        font-style: italic;
+    }
+
+    &--hasPhoneNumber&--hasFaxNumber &-phoneNumberWrapper::after {
+        content: ' (Phone)';
+    }
+
+    &--hasPhoneNumber&--hasFaxNumber &-faxNumberWrapper::after {
+        content: ' (Fax)';
+    }
+
+    &-addressWrapper {
+        .csElementWrapper();
+    }
+
+/*
+
+ ██████  ██████  ███    ███ ██████  ██      ███████ ██   ██
+██      ██    ██ ████  ████ ██   ██ ██      ██       ██ ██
+██      ██    ██ ██ ████ ██ ██████  ██      █████     ███
+██      ██    ██ ██  ██  ██ ██      ██      ██       ██ ██
+ ██████  ██████  ██      ██ ██      ███████ ███████ ██   ██
+
+*/
+
+    &-section {
+        display: none;
+        margin: 0 0 3rem;
+    }
+
+    &--hasDescription &-section--description {
+        display: block;
+    }
+
+    &--hasEducation &-section--education {
+        display: block;
+    }
+
+    &--hasClinicalExpertise &-section--clinicalExpertise {
+        display: block;
+    }
+
+    &--hasTeachingResponsibilities &-section--teachingResponsibilities {
+        display: block;
+    }
+
+    &--hasProfessionalActivitiesOrMemberships &-section--professionalActivitiesOrMemberships {
+        display: block;
+    }
+
+    &--hasCertifications &-section--certifications {
+        display: block;
+    }
+
+    &--hasScholarlyActiviity &-section--scholarlyActiviity {
+        display: block;
+    }
+
+    &--hasPublications &-section--publications {
+        display: block;
+    }
+
+    &--hasPublications &-section--publications {
+        display: block;
+    }
+
+    &--hasPresentationsOrPosters &-section--presentationsOrPosters {
+        display: block;
+    }
+
+    &--hasAwardsOrRecognitions &-section--awardsOrRecognitions {
+        display: block;
+    }
+
+    &--hasActiveGrantsOrContacts &-section--activeGrantsOrContacts {
+        display: block;
+    }
+
+    &--hasResearchInterests &-section--researchInterests {
+        display: block;
+    }
+
+    &-sectionHeading {
+        margin: 0 0 1rem;
+    }
+
+}
+
+/*! sourceMappingURL=./chp-employee-profiles-phase-1-details.css.map */
