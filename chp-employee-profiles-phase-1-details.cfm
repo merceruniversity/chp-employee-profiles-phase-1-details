@@ -1,24 +1,28 @@
 <cfif 'read' eq request.renderstate.rendermode>
 
     <cfscript>
+        isInAthleticTrainingSubsite = false;
+        isInClinicalPsychologySubsite = false;
         isInPhysicalTherapySubsite = false;
         isInPhysicanAssistantStudiesSubsite = false;
         isInPublicHealthSubsite = false;
-        isInClinicalPsychologySubsite = false;
 
+        athleticTrainingSubstring = '/academics-departments/athletic-training/';
+        clinicalPsychlogySubstring = '/academics-departments/clinical-psychology/';
         physicalTherapySubsiteSubstring = '/academics-departments/physical-therapy/';
         physicianAssistantStudiesSubsiteSubstring = '/academics-departments/physician-assistant-studies/';
         publicHealthSubsiteSubstring = '/academics-departments/public-health/';
-        clinicalPsychlogySubstring = '/academics-departments/clinical-psychology/';
 
-        if (0 lt FindNoCase(physicalTherapySubsiteSubstring, cgi.script_name)) {
+        if (0 lt FindNoCase(athleticTrainingSubstring, cgi.script_name)) {
+            isInAthleticTrainingSubsite = true;
+        } else if (0 lt FindNoCase(clinicalPsychlogySubstring, cgi.script_name)) {
+            isInClinicalPsychologySubsite =  true;
+        } else if (0 lt FindNoCase(physicalTherapySubsiteSubstring, cgi.script_name)) {
             isInPhysicalTherapySubsite = true;
         } else if (0 lt FindNoCase(physicianAssistantStudiesSubsiteSubstring, cgi.script_name)) {
             isInPhysicanAssistantStudiesSubsite = true;
         } else if (0 lt FindNoCase(publicHealthSubsiteSubstring, cgi.script_name)) {
             isInPublicHealthSubsite = true;
-        } else if (0 lt FindNoCase(clinicalPsychlogySubstring, cgi.script_name)) {
-            isInClinicalPsychologySubsite =  true;
         }
     </cfscript>
 
@@ -47,6 +51,32 @@
                     College of Health Professions Directory
                 </span>
             </a>
+
+            <cfif isInAthleticTrainingSubsite>
+                <a class="CHPEmployeeProfilesPhase1Details-button CHPEmployeeProfilesPhase1Details-button--back" href="/www/mu-chp/academics-departments/athletic-training/faculty-staff/index.cfm">
+                    <span class="CHPEmployeeProfilesPhase1Details-buttonIconOutside">
+                        <svg class="CHPEmployeeProfilesPhase1Details-buttonIcon CHPEmployeeProfilesPhase1Details-buttonIcon--back" xmlns="http://www.w3.org/2000/svg" height="53.791" viewBox="0 0 64 53.790592" width="64">
+                            <path d="M63.73 52.09c.1-.673 2.22-16.82-7.277-27.932-5.834-6.828-14.835-10.565-26.46-10.935l-.06-11.226c0-.772-.446-1.474-1.142-1.806-.697-.325-1.523-.23-2.12.257L.735 21.73c-.464.38-.734.948-.736 1.548-.002.6.266 1.168.73 1.548L26.665 46.31c.596.495 1.43.597 2.122.265.702-.33 1.145-1.036 1.145-1.808l.062-11.477c28.017-.02 30.01 17.93 30.077 18.673.087 1.008.725 1.794 1.737 1.826h.068c.99 0 1.708-.72 1.856-1.7zM26.524 29.84c-.376.376-.588.884-.588 1.416v9.275L5.158 23.29 25.935 6.207v8.986c0 1.105.894 2 2 2 11.38 0 20.073 3.295 25.468 9.55 4.058 4.71 5.924 10.47 6.562 15.252-4.368-5.968-12.015-12.725-32.028-12.737h-.004c-.528 0-1.036.21-1.41.584z"/>
+                        </svg>
+                    </span>
+                    <span class="CHPEmployeeProfilesPhase1Details-buttonText CHPEmployeeProfilesPhase1Details-buttonText--back">
+                        Athletic Training Directory
+                    </span>
+                </a>
+            </cfif>
+
+            <cfif isInClinicalPsychologySubsite>
+                <a class="CHPEmployeeProfilesPhase1Details-button CHPEmployeeProfilesPhase1Details-button--back" href="/www/mu-chp/academics-departments/clinical-psychology/faculty-staff/index.cfm">
+                    <span class="CHPEmployeeProfilesPhase1Details-buttonIconOutside">
+                        <svg class="CHPEmployeeProfilesPhase1Details-buttonIcon CHPEmployeeProfilesPhase1Details-buttonIcon--back" xmlns="http://www.w3.org/2000/svg" height="53.791" viewBox="0 0 64 53.790592" width="64">
+                            <path d="M63.73 52.09c.1-.673 2.22-16.82-7.277-27.932-5.834-6.828-14.835-10.565-26.46-10.935l-.06-11.226c0-.772-.446-1.474-1.142-1.806-.697-.325-1.523-.23-2.12.257L.735 21.73c-.464.38-.734.948-.736 1.548-.002.6.266 1.168.73 1.548L26.665 46.31c.596.495 1.43.597 2.122.265.702-.33 1.145-1.036 1.145-1.808l.062-11.477c28.017-.02 30.01 17.93 30.077 18.673.087 1.008.725 1.794 1.737 1.826h.068c.99 0 1.708-.72 1.856-1.7zM26.524 29.84c-.376.376-.588.884-.588 1.416v9.275L5.158 23.29 25.935 6.207v8.986c0 1.105.894 2 2 2 11.38 0 20.073 3.295 25.468 9.55 4.058 4.71 5.924 10.47 6.562 15.252-4.368-5.968-12.015-12.725-32.028-12.737h-.004c-.528 0-1.036.21-1.41.584z"/>
+                        </svg>
+                    </span>
+                    <span class="CHPEmployeeProfilesPhase1Details-buttonText CHPEmployeeProfilesPhase1Details-buttonText--back">
+                        Clinical Psychology Directory
+                    </span>
+                </a>
+            </cfif>
 
             <cfif isInPhysicalTherapySubsite>
                 <a class="CHPEmployeeProfilesPhase1Details-button CHPEmployeeProfilesPhase1Details-button--back" href="/www/mu-chp/academics-departments/physical-therapy/faculty-staff/index.cfm">
@@ -83,19 +113,6 @@
                     </span>
                     <span class="CHPEmployeeProfilesPhase1Details-buttonText CHPEmployeeProfilesPhase1Details-buttonText--back">
                         Public Health Directory
-                    </span>
-                </a>
-            </cfif>
-
-            <cfif isInClinicalPsychologySubsite>
-                <a class="CHPEmployeeProfilesPhase1Details-button CHPEmployeeProfilesPhase1Details-button--back" href="/www/mu-chp/academics-departments/clinical-psychology/faculty-staff/index.cfm">
-                    <span class="CHPEmployeeProfilesPhase1Details-buttonIconOutside">
-                        <svg class="CHPEmployeeProfilesPhase1Details-buttonIcon CHPEmployeeProfilesPhase1Details-buttonIcon--back" xmlns="http://www.w3.org/2000/svg" height="53.791" viewBox="0 0 64 53.790592" width="64">
-                            <path d="M63.73 52.09c.1-.673 2.22-16.82-7.277-27.932-5.834-6.828-14.835-10.565-26.46-10.935l-.06-11.226c0-.772-.446-1.474-1.142-1.806-.697-.325-1.523-.23-2.12.257L.735 21.73c-.464.38-.734.948-.736 1.548-.002.6.266 1.168.73 1.548L26.665 46.31c.596.495 1.43.597 2.122.265.702-.33 1.145-1.036 1.145-1.808l.062-11.477c28.017-.02 30.01 17.93 30.077 18.673.087 1.008.725 1.794 1.737 1.826h.068c.99 0 1.708-.72 1.856-1.7zM26.524 29.84c-.376.376-.588.884-.588 1.416v9.275L5.158 23.29 25.935 6.207v8.986c0 1.105.894 2 2 2 11.38 0 20.073 3.295 25.468 9.55 4.058 4.71 5.924 10.47 6.562 15.252-4.368-5.968-12.015-12.725-32.028-12.737h-.004c-.528 0-1.036.21-1.41.584z"/>
-                        </svg>
-                    </span>
-                    <span class="CHPEmployeeProfilesPhase1Details-buttonText CHPEmployeeProfilesPhase1Details-buttonText--back">
-                        Clinical Psychology Directory
                     </span>
                 </a>
             </cfif>
